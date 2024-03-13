@@ -1,0 +1,47 @@
+{
+  "bases": {
+    "rag_orcamento": {
+      "caminho": "bases/Base_Dados RAG_Acao_Exec_Orcamentaria-06032024-0805.xlsx",
+      "aba": "Exportar Planilha",
+      "quantidade_linhas_pular": 1,
+      "coluna_chave": "COD. DA AÇÃO"
+    },
+    "rag_orcamento": {
+      "caminho": "bases/Base_Dados RAG_Acao-06032024-0830.xlsx",
+      "aba": "Exportar Planilha",
+      "quantidade_linhas_pular": 3,
+      "coluna_chave": "COD. DA AÇÃO"
+    }
+  },
+  "palavras_interesse": ["Agricultora"
+                        ,"A cônjuge"
+                        ,"Beneficiária"
+                        ,"Casada"
+                        ,"Companheira"
+                        ,"Dama"
+                        ,"Desempregada"
+                        ,"Divorciada"
+                        ,"Empreendedora"
+                        ,"Esposa"
+                        ,"Feminina"
+                        ,"Gestante"
+                        ,"Guerreira"
+                        ,"Igualdade de gênero"
+                        ,"Lactante"
+                        ,"Mãe"
+                        ,"Moça"
+                        ,"Mulher"
+                        ,"Mulheres"
+                        ,"Namorada"
+                        ,"Noiva"
+                        ,"Produtora"
+                        ,"Promovedora"
+                        ,"Provedora"
+                        ,"Senhora"
+                        ,"Siminia"
+                        ,"Solteira"
+                        ,"Sororidade"
+                        ,"Velha"
+                        ,"Viúva"
+                        ]
+}
