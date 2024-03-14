@@ -6,10 +6,16 @@
       "quantidade_linhas_pular": 1,
       "coluna_chave": "COD. DA AÇÃO"
     },
-    "rag_orcamento": {
+    "rag_acao": {
       "caminho": "bases/Base_Dados RAG_Acao-06032024-0830.xlsx",
       "aba": "Exportar Planilha",
-      "quantidade_linhas_pular": 3,
+      "quantidade_linhas_pular": [0,1,2],
+      "coluna_chave": "COD. DA AÇÃO"
+    },
+    "rag_programa": {
+      "caminho": "bases/Base_Dados RAG_Programa-06032024-0805.xlsx",
+      "aba": "Exportar Planilha",
+      "quantidade_linhas_pular": [0,1,2],
       "coluna_chave": "COD. DA AÇÃO"
     }
   },
