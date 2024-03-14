@@ -17,6 +17,12 @@
       "aba": "Exportar Planilha",
       "quantidade_linhas_pular": [0,1,2],
       "coluna_chave": "COD. DA AÇÃO"
+    },
+    "pta": {
+      "caminho": "bases/PTA2023.xlsx",
+      "aba": "Exportar Planilha",
+      "quantidade_linhas_pular": [-1],
+      "coluna_chave": "COD. DA AÇÃO"
     }
   },
   "palavras_interesse": ["Agricultora"
