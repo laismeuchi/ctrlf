@@ -11,7 +11,7 @@ palavras_interesse = [x.lower() for x in configuration["palavras_interesse"]]
 
 def get_lemas():
     load_model = spacy.load('pt_core_news_sm', disable=['parser'])
-    lemma_tags = {"NNS", "NNPS"}
+    lemma_tags = {"NN", "NNP","NNS", "NNPS"}
     lemma = ""
 
     for palavara in palavras_interesse:
@@ -52,6 +52,7 @@ def treate_files(file):
     search_base = xlsx_file[[col for col in xlsx_file.columns if col in desired_columns]]
     # print(search_base)
     search_base.loc[:, 'tem_palavra_interesse'] = False
+    search_base.loc[:, 'coluna_palavra_interesse'] = ""
 
     # para cada linha da base
     for index, row in search_base.iterrows():
@@ -60,11 +61,14 @@ def treate_files(file):
         # para cada coluna da busca, verifica se tem a palavra de interesse
         for column_name in text_columns:
             value_find = str(search_base.at[index, column_name]).lower()
-            if any(x in value_find for x in palavras_interesse):
-                row['tem_palavra_interesse'] = True
-                # print("tem!")
-                search_base.at[index, 'tem_palavra_interesse'] = row['tem_palavra_interesse']
-                break
+            for word in palavras_interesse:
+                if word in value_find:
+                    search_base.at[index, 'tem_palavra_interesse'] = True
+                    key_value = column_name + ": " + word
+                    search_base.at[index, 'coluna_palavra_interesse'] = (
+                            search_base.loc[index, 'coluna_palavra_interesse'] + key_value) \
+                        if search_base.loc[index, 'coluna_palavra_interesse'] == "" \
+                        else search_base.loc[index, 'coluna_palavra_interesse'] + ", " + key_value
 
     result = search_base[search_base['tem_palavra_interesse'] == True]
     result.to_csv('bases/resultado_' + file + '.csv', sep=';', encoding='utf-8-sig', index=False)
@@ -78,4 +82,8 @@ if __name__ == '__main__':
     for key in bases:
         print(key)
         treate_files(key)
+
+    # treate_files('rag_orcamento')
+
+    # get_lemas()
 
