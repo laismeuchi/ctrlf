@@ -1,12 +1,9 @@
-import pandas
-
-from pathlib import Path
-
 import tkinter
+from pathlib import Path
 from tkinter import filedialog, INSERT, DISABLED, WORD
 from tkinter.messagebox import showinfo
 
-import spacy
+import pandas
 
 words_file_path = ""
 base_file_path = ""
@@ -38,23 +35,6 @@ def browse_base_file():
     print(base_file_path)
 
 
-def get_lemas():
-    load_model = spacy.load('pt_core_news_sm', disable=['parser'])
-    lemma_tags = {"NN", "NNP", "NNS", "NNPS"}
-    lemma = ""
-
-    # for palavara in palavras_interesse:
-    #     My_text = palavara
-    #     doc = load_model(My_text)
-    #
-    #     for token in doc:
-    #         lemma = token.text
-    #         if token.tag_ in lemma_tags:
-    #             lemma = token.lemma_
-    #         result = lemma
-    #         print(result)
-
-
 def treate_files():
     file_serach_words = words_file_path
 
@@ -63,8 +43,6 @@ def treate_files():
     xlsx_search_words['Palavras'] = xlsx_search_words['Palavras'].str.lower()
 
     file = base_file_path
-    # print(configuration["bases"][file]["caminho"])
-    # print(configuration["bases"][file]["aba"])
 
     if len(skip_rows_entry.get()) == 0:
         skip_rows = None
@@ -78,8 +56,6 @@ def treate_files():
     text_columns = xlsx_file.select_dtypes(include=object).columns
 
     desired_columns = text_columns.tolist()
-    # adiciona a coluna chave
-    # desired_columns.append("COD. DA AÇÃO")
 
     # filtra só as colunas de texto
     search_base = xlsx_file[[col for col in xlsx_file.columns if col in desired_columns]]
@@ -89,8 +65,6 @@ def treate_files():
 
     # para cada linha da base
     for index, row in search_base.iterrows():
-        # print("estou na linha: ", index)
-        # para cada coluna da busca, verifica se tem a palavra de interesse
         for column_name in text_columns:
             value_find = str(search_base.at[index, column_name]).lower()
             for word in xlsx_search_words['Palavras']:
