@@ -11,7 +11,7 @@ Ao final é gerada uma cópia do arquivo de base com uma coluna adicional que in
 
  ![image](https://github.com/user-attachments/assets/e516a57e-935b-4d05-ba89-5a12d33bd4c0)
 
-2. Selecionar o arquivo de Pavras e o arquivo de base que será consultado.
+2. Selecionar o arquivo de palavras e o arquivo de base que será consultado.
 3. Indicar se existe alguma linha do arquivo base que deve ser desconsiderda
 4. Indicar o nome da aba a ser processada no arquivo base
 5. Clicar em Processar Arquivo e aguardar a finalização
